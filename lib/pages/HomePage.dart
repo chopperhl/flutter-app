@@ -1,3 +1,4 @@
+import 'package:flui/flui.dart';
 import 'package:flutter/material.dart';
 import '../network/manager.dart';
 
@@ -22,7 +23,7 @@ class _HomePageState extends State<HomePage> {
         });
     return Scaffold(
         appBar: AppBar(
-          title: Text(widget.title),
+          title: FLAppBarTitle(title:widget.title),
         ),
         body: ListView.builder(
             padding: const EdgeInsets.all(8.0),
