@@ -11,11 +11,9 @@ class NetworkManager {
     return _instance;
   }
 
-  NetworkManager._internal() {
-    print("init");
-  }
+  NetworkManager._internal();
 
   Future<Map> fetchMainData() {
-    return Request.get("/data/福利/100/1", {});
+    return Request.getUrl("http://api.douban.com/v2/movie/top250");
   }
 }

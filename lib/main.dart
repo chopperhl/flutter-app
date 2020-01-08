@@ -11,7 +11,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: HomePage(title: 'Home Page'),
+      home: HomePage(),
+      routes: <String, WidgetBuilder>{
+        'main': (_) => HomePage(),
+      },
     );
   }
 }

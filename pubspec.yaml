@@ -9,7 +9,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flui: 0.8.0  
+  flui: 0.8.0
+  dio: 3.0.8
   cupertino_icons: ^0.1.2
 
 dev_dependencies:

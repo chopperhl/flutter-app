@@ -1,20 +1,18 @@
-import 'dart:convert';
 import 'dart:io';
 
-var httpClient = new HttpClient();
-final String baseUrl = "gank.io";
+import 'package:dio/dio.dart';
 
 class Request {
-  static Future<Map> get(String path, Map<String, String> params) async {
-    var uri = new Uri.http(baseUrl, "/api" + path, params);
-    var request = await httpClient.getUrl(uri);
-    var response = await request.close();
+  static final Dio dio = Dio();
+
+  static Future<Map> getUrl(String url) async {
+    Response<Map> response = await dio.get(url,
+        queryParameters: {"apikey": "0df993c66c0c636e29ecbb5344252a4a"});
+    print(response.data);
     if (response.statusCode == HttpStatus.ok) {
-      var json = await response.transform(utf8.decoder).join();
-      var data = jsonDecode(json);
-      return data;
+      return response.data;
     } else {
-      throw new Exception("请求失败");
+      throw Exception("请求失败");
     }
   }
 }
